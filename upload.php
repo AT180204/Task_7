@@ -5,20 +5,21 @@ $file_path = $folder_path.$_FILES['fileUpload']['name'];
 $flag = true;
 
 if(file_exists($file_path)){
-    echo 'File đã tồn tại!';
+    echo 'File exist!';
     $flag = false;
 }
 
 if($_FILES['fileUpload']['size']>5242880){
-    echo 'Dung lượng file quá lớn!';
+    echo 'Size to large!';
     $flag = false;
 }
+
 if($flag){
     move_uploaded_file($_FILES['fileUpload']['tmp_name'], $file_path);
-    echo 'File đã được tải lên!';
+    echo 'File uploaded successfully!';
 }
 else{
-    echo 'Tải lên không thành công!';
+    echo 'Upload failed!';
 }
 
 ?>
